@@ -3,14 +3,16 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 # Create flask app
-flask_app = Flask(__name__)
+app = Flask(__name__)
+
 import os
 
 model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
 model = pickle.load(open(model_path, "rb"))
 
 
-@flask_app.route("/")
+@app.route('/')
+
 def Home():
     return render_template("index.html")
 
